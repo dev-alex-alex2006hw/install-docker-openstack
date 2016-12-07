@@ -1,0 +1,10 @@
+
+rm -rf /opt/stack/nova-docker
+git clone https://git.openstack.org/openstack/nova-docker /opt/stack/nova-docker
+
+cd /opt/stack/nova-docker
+pip install --upgrade pip
+pip install .  # The linecache2 error appears to be benign
+
+cd /opt/devstack
+./stack.sh

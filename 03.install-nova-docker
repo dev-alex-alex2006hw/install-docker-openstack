@@ -1,0 +1,17 @@
+apt-get update
+apt-get install -y python-pip python-dev
+
+
+git clone https://git.openstack.org/openstack-dev/devstack /opt/devstack
+
+/opt/devstack/tools/create-stack-user.sh
+
+cp ./utils/local.conf /opt/devstack
+cp ./utils/rejoin-stack.sh /opt/devstack
+cp ./utils/04.runas-stack-user /opt/devstack
+
+cd /opt;chown -R stack:stack *stack*
+
+
+echo "Please run the next part as the user stack"
+echo "---> /opt/devstack/04.runas-stack-user"
